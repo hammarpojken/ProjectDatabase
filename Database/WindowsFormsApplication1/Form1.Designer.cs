@@ -36,6 +36,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tab.SuspendLayout();
             this.Student.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -61,6 +62,7 @@
             // 
             // Student
             // 
+            this.Student.Controls.Add(this.textBox1);
             this.Student.Controls.Add(this.comboBox1);
             this.Student.Controls.Add(this.dataGridView1);
             this.Student.Location = new System.Drawing.Point(4, 23);
@@ -76,7 +78,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Kurs"});
-            this.comboBox1.Location = new System.Drawing.Point(28, 38);
+            this.comboBox1.Location = new System.Drawing.Point(7, 51);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 22);
             this.comboBox1.TabIndex = 1;
@@ -137,6 +139,15 @@
             this.dataGridView3.Size = new System.Drawing.Size(695, 220);
             this.dataGridView3.TabIndex = 0;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(6, 15);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,6 +159,7 @@
             this.Load += new System.EventHandler(this.form1Load);
             this.tab.ResumeLayout(false);
             this.Student.ResumeLayout(false);
+            this.Student.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.Utbildning.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -167,6 +179,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

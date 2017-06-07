@@ -20,7 +20,7 @@ namespace WindowsFormsApplication1
            
             InitializeComponent();
         }
-
+        // Det som sker när applicationen startas
         private void form1Load(object sender, EventArgs e)
         {
             dt = dbhandler.selectDB("SELECT * FROM student");
@@ -36,7 +36,7 @@ namespace WindowsFormsApplication1
         {
             
         }
-
+         //Fyller tabbarna med rätt information när man växlar 
         private void tab_Selected(object sender, TabControlEventArgs e)
         {
             if(e.TabPageIndex.Equals(1))
@@ -55,6 +55,18 @@ namespace WindowsFormsApplication1
                 dataGridView1.DataSource = dt;
             }
            
+        }
+        // Sök funktion för studenter
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (this.textBox1.Text.Equals(""))
+            {
+                dt = dbhandler.selectDB("SELECT * FROM student");
+                dataGridView1.DataSource = dt;
+            }
+            dt = dbhandler.selectDB("SELECT * FROM student WHERE LOWER (fname) LIKE '" + this.textBox1.Text.ToLower() + "%' OR LOWER (lname) LIKE '" + this.textBox1.Text.ToLower() + "%'");
+            dataGridView1.DataSource = dt;
+            
         }
     }
 }
