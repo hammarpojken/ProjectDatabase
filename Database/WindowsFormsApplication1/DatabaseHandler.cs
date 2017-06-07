@@ -12,23 +12,28 @@ namespace WindowsFormsApplication1
     {
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
-        private string conn = "Server=127.0.0.1;Port=5432;Database=project;User Id=postgres;Password=backstab1870;";
-
+        private string connstring = "Server=127.0.0.1;Port=5432;Database=project;User Id=postgres;Password=backstab1870;";
+        
         public DatabaseHandler()
         {
 
 
+
         }
-        public DataSet selectDB(string sql)
+        public DataTable selectDB(string sql)
         {
-            DataSet ds = new DataSet();
+            
+            NpgsqlConnection conn = new NpgsqlConnection(connstring);
+            conn.Open();
             NpgsqlDataAdapter da = new NpgsqlDataAdapter(sql, conn);
-            DataTable dt = new DataTable();
+            //DataSet ds = new DataSet();
+            //DataTable dt = new DataTable();
 
             ds.Reset();
             da.Fill(ds);
             dt = ds.Tables[0];
-            return ds;
+            conn.Close();
+            return dt;
         }
         public void updateDB ()
         {
