@@ -10,9 +10,9 @@ namespace WindowsFormsApplication1
 {
     class DatabaseHandler
     {
-        private DataSet ds = new DataSet();
-        private DataTable dt = new DataTable();
-        private string connstring = "Server=127.0.0.1;Port=5432;Database=project;User Id=postgres;Password=backstab1870;";
+        public DataSet ds = new DataSet();
+        public DataTable dt = new DataTable();
+        public string connstring = "Server=127.0.0.1;Port=5432;Database=project;User Id=postgres;Password=backstab1870;";
         
         public DatabaseHandler()
         {

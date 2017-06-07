@@ -66,7 +66,14 @@ namespace WindowsFormsApplication1
             }
             dt = dbhandler.selectDB("SELECT * FROM student WHERE LOWER (fname) LIKE '" + this.textBox1.Text.ToLower() + "%' OR LOWER (lname) LIKE '" + this.textBox1.Text.ToLower() + "%'");
             dataGridView1.DataSource = dt;
-            
+
+        }
+        // popup funktion för specifik student
+        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string studentid = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+            new StudentPopup(studentid).Show();
+
         }
     }
 }
