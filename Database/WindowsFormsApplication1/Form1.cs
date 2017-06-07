@@ -81,7 +81,11 @@ namespace WindowsFormsApplication1
                 dataGridView1.DataSource = dt;
             } else if (comboBox1.SelectedItem.Equals("Antagna"))
             {
-                dt = dbhandler.selectDB("SELECT st.fname, st.lname, sta.utb, sta.antagen FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.antagen = TRUE");
+                dt = dbhandler.selectDB("SELECT st.fname, st.lname, sta.antagen FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.antagen = TRUE");
+                dataGridView1.DataSource = dt;
+            }else if (comboBox1.SelectedItem.Equals("Klara"))
+            {
+                dt = dbhandler.selectDB("SELECT st.fname, st.lname, sta.klar FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.klar = TRUE");
                 dataGridView1.DataSource = dt;
             }
         }
