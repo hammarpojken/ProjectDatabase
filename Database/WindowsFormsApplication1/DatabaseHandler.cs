@@ -40,7 +40,6 @@ namespace WindowsFormsApplication1
         {
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
             conn.Open();
-
             NpgsqlCommand command = new NpgsqlCommand("INSERT INTO student VALUES (:personnr, :fname, :lname, :adress, :postnr, :ort, :pr,:ma,:sv,:en,:gy)", conn);
 
             try
@@ -76,9 +75,44 @@ namespace WindowsFormsApplication1
            
 
         }
-        public void updateStudent(DataTable dtstudent)
+        public void updateStudent(DataTable dtstudent, Int64 id)
         {
-
+            NpgsqlConnection conn = new NpgsqlConnection(connstring);
+            conn.Open();
+            NpgsqlCommand cmd = new NpgsqlCommand("update student set \"personnr\" = :personnr, \"fname\" = :fname, \"lname\" = :lname, \"adress\" = :adress," +
+               " \"postnr\" = :postnr, \"ort\" = ort, \"pr\" = :pr," +
+               " \"ma\" = :ma, \"sv\" = :sv, \"en\" = :en, \"gy\" = :gy Where \"personnr\" = " + id, conn);
+            try
+            {
+                cmd.Parameters.Add(new NpgsqlParameter("personnr", NpgsqlTypes.NpgsqlDbType.Bigint));
+                cmd.Parameters.Add(new NpgsqlParameter("fname", NpgsqlTypes.NpgsqlDbType.Text));
+                cmd.Parameters.Add(new NpgsqlParameter("lname", NpgsqlTypes.NpgsqlDbType.Text));
+                cmd.Parameters.Add(new NpgsqlParameter("adress", NpgsqlTypes.NpgsqlDbType.Text));
+                cmd.Parameters.Add(new NpgsqlParameter("postnr", NpgsqlTypes.NpgsqlDbType.Integer));
+                cmd.Parameters.Add(new NpgsqlParameter("ort", NpgsqlTypes.NpgsqlDbType.Text));
+                cmd.Parameters.Add(new NpgsqlParameter("pr", NpgsqlTypes.NpgsqlDbType.Char));
+                cmd.Parameters.Add(new NpgsqlParameter("ma", NpgsqlTypes.NpgsqlDbType.Char));
+                cmd.Parameters.Add(new NpgsqlParameter("sv", NpgsqlTypes.NpgsqlDbType.Char));
+                cmd.Parameters.Add(new NpgsqlParameter("en", NpgsqlTypes.NpgsqlDbType.Char));
+                cmd.Parameters.Add(new NpgsqlParameter("gy", NpgsqlTypes.NpgsqlDbType.Boolean));
+                cmd.Parameters[0].Value = dtstudent.Rows[0][0];
+                cmd.Parameters[1].Value = dtstudent.Rows[0][1];
+                cmd.Parameters[2].Value = dtstudent.Rows[0][2];
+                cmd.Parameters[3].Value = dtstudent.Rows[0][3];
+                cmd.Parameters[4].Value = dtstudent.Rows[0][4];
+                cmd.Parameters[5].Value = dtstudent.Rows[0][5];
+                cmd.Parameters[6].Value = dtstudent.Rows[0][6];
+                cmd.Parameters[7].Value = dtstudent.Rows[0][7];
+                cmd.Parameters[8].Value = dtstudent.Rows[0][8];
+                cmd.Parameters[9].Value = dtstudent.Rows[0][9];
+                cmd.Parameters[10].Value = dtstudent.Rows[0][10];
+                cmd.ExecuteNonQuery();
+                conn.Close();
+            }
+            catch (NpgsqlException e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+            }
         }
 
     }
