@@ -20,11 +20,20 @@ namespace WindowsFormsApplication1
         public StudentPopup(String studentid)
         {
             this.studentid = studentid;
+            
             InitializeComponent();
+            this.button1.Show();
+        }
+        public StudentPopup()
+        {
+           
+            InitializeComponent();
+            button2.Show();
         }
         // laddar in all data om studenten
         private void Form2_Load(object sender, EventArgs e)
         {
+            
             dtstudent = dbhandler.selectDB("SELECT * FROM student WHERE personnr = " + studentid).Copy();
            
             this.Text = dtstudent.Rows[0].Field<string>(1) + " " + dtstudent.Rows[0].Field<string>(2);
@@ -69,7 +78,12 @@ namespace WindowsFormsApplication1
             dtstudent.Rows[0]["gy"] = Boolean.Parse(textBox11.Text);
 
             dbhandler.newStudentRow(dtstudent);
+            this.Close();
+        }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -75,7 +75,7 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(comboBox1.SelectedItem.Equals(""))
+            if(comboBox1.SelectedItem.Equals("") || comboBox1.SelectedItem.Equals(null))
             {
                 dt = dbhandler.selectDB("SELECT * FROM student");
                 dataGridView1.DataSource = dt;
@@ -88,6 +88,11 @@ namespace WindowsFormsApplication1
                 dt = dbhandler.selectDB("SELECT st.fname, st.lname, sta.klar FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.klar = TRUE");
                 dataGridView1.DataSource = dt;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            new StudentPopup().Show();
         }
     }
 }

@@ -40,6 +40,7 @@ namespace WindowsFormsApplication1
         {
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
             conn.Open();
+
             NpgsqlCommand command = new NpgsqlCommand("INSERT INTO student VALUES (:personnr, :fname, :lname, :adress, :postnr, :ort, :pr,:ma,:sv,:en,:gy)", conn);
 
             try
@@ -75,6 +76,11 @@ namespace WindowsFormsApplication1
            
 
         }
+        public void updateStudent(DataTable dtstudent)
+        {
+
+        }
 
     }
+
 }

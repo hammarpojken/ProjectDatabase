@@ -55,6 +55,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,35 +108,35 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(102, 43);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 5;
             // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(102, 69);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.Size = new System.Drawing.Size(146, 20);
             this.textBox2.TabIndex = 5;
             // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(102, 94);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.Size = new System.Drawing.Size(146, 20);
             this.textBox3.TabIndex = 5;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(102, 117);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(146, 20);
             this.textBox4.TabIndex = 5;
             // 
             // textBox5
             // 
             this.textBox5.Location = new System.Drawing.Point(102, 142);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(146, 20);
             this.textBox5.TabIndex = 5;
             // 
             // button1
@@ -146,6 +147,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "Spara";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
@@ -161,7 +163,7 @@
             // 
             this.textBox6.Location = new System.Drawing.Point(102, 169);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(146, 20);
             this.textBox6.TabIndex = 5;
             // 
             // dataGridView1
@@ -232,28 +234,28 @@
             // 
             this.textBox7.Location = new System.Drawing.Point(355, 43);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
+            this.textBox7.Size = new System.Drawing.Size(146, 20);
             this.textBox7.TabIndex = 5;
             // 
             // textBox8
             // 
             this.textBox8.Location = new System.Drawing.Point(355, 69);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
+            this.textBox8.Size = new System.Drawing.Size(146, 20);
             this.textBox8.TabIndex = 5;
             // 
             // textBox9
             // 
             this.textBox9.Location = new System.Drawing.Point(355, 94);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
+            this.textBox9.Size = new System.Drawing.Size(146, 20);
             this.textBox9.TabIndex = 5;
             // 
             // textBox10
             // 
             this.textBox10.Location = new System.Drawing.Point(355, 120);
             this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
+            this.textBox10.Size = new System.Drawing.Size(146, 20);
             this.textBox10.TabIndex = 5;
             // 
             // label13
@@ -269,7 +271,7 @@
             // 
             this.textBox11.Location = new System.Drawing.Point(355, 142);
             this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
+            this.textBox11.Size = new System.Drawing.Size(146, 20);
             this.textBox11.TabIndex = 5;
             // 
             // label14
@@ -282,11 +284,23 @@
             this.label14.TabIndex = 10;
             this.label14.Text = "Betyg";
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(447, 382);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Spara";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // StudentPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 417);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label12);
@@ -352,5 +366,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button2;
     }
 }
