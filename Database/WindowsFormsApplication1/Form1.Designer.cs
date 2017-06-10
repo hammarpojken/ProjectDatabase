@@ -30,6 +30,7 @@
         {
             this.tab = new System.Windows.Forms.TabControl();
             this.Student = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -38,7 +39,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
             this.tab.SuspendLayout();
             this.Student.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -53,11 +53,12 @@
             this.tab.Controls.Add(this.Student);
             this.tab.Controls.Add(this.Utbildning);
             this.tab.Controls.Add(this.tabPage1);
+            this.tab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tab.Location = new System.Drawing.Point(3, 2);
+            this.tab.Location = new System.Drawing.Point(0, 0);
             this.tab.Name = "tab";
             this.tab.SelectedIndex = 0;
-            this.tab.Size = new System.Drawing.Size(715, 356);
+            this.tab.Size = new System.Drawing.Size(733, 357);
             this.tab.TabIndex = 0;
             this.tab.Selected += new System.Windows.Forms.TabControlEventHandler(this.tab_Selected);
             this.tab.TabIndexChanged += new System.EventHandler(this.tab_TabIndexChanged);
@@ -72,10 +73,20 @@
             this.Student.Location = new System.Drawing.Point(4, 23);
             this.Student.Name = "Student";
             this.Student.Padding = new System.Windows.Forms.Padding(3);
-            this.Student.Size = new System.Drawing.Size(707, 329);
+            this.Student.Size = new System.Drawing.Size(725, 330);
             this.Student.TabIndex = 0;
             this.Student.Text = "Students";
             this.Student.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(598, 43);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 4;
+            this.button2.Text = "Ny student";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
@@ -128,7 +139,7 @@
             this.Utbildning.Location = new System.Drawing.Point(4, 23);
             this.Utbildning.Name = "Utbildning";
             this.Utbildning.Padding = new System.Windows.Forms.Padding(3);
-            this.Utbildning.Size = new System.Drawing.Size(707, 329);
+            this.Utbildning.Size = new System.Drawing.Size(725, 330);
             this.Utbildning.TabIndex = 1;
             this.Utbildning.Text = "Utbildning";
             this.Utbildning.UseVisualStyleBackColor = true;
@@ -150,7 +161,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(707, 329);
+            this.tabPage1.Size = new System.Drawing.Size(725, 330);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Anställda";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -165,16 +176,6 @@
             this.dataGridView3.ReadOnly = true;
             this.dataGridView3.Size = new System.Drawing.Size(695, 220);
             this.dataGridView3.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(598, 43);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Ny student";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
