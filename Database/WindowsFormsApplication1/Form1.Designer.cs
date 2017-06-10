@@ -184,7 +184,7 @@
             this.ClientSize = new System.Drawing.Size(733, 357);
             this.Controls.Add(this.tab);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Utbildningshanteringssystem";
             this.Load += new System.EventHandler(this.form1Load);
             this.tab.ResumeLayout(false);
             this.Student.ResumeLayout(false);

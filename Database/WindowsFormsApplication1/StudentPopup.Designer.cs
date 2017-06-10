@@ -331,7 +331,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
             this.Name = "StudentPopup";
-            this.Text = "Form2";
+            this.Text = "Student";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
