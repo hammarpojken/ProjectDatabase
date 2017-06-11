@@ -15,6 +15,9 @@ namespace WindowsFormsApplication1
     {
         private DatabaseHandler dbhandler = new DatabaseHandler();
         private DataTable dt = new DataTable();
+        private String studentSQL = "SELECT st.personnr AS Personnummer, st.fname AS Förnamn, st.lname AS Efternamn, st.adress AS Adress, st.postnr AS Postnummer, po.ort as Bostadsort, st.gy AS Gymnasiebehörighet, st.pr AS Programmering, st.ma AS Matematik, st.sv AS Svenska, st.en AS Engelska FROM student st JOIN postort po ON st.postnr = po.postnr";
+        private String utbildningSQL = "SELECT * FROM utbildning";
+        private String anstalldSQL = "SELECT * FROM anstalld";
         public Form1()
         {
            
@@ -23,7 +26,7 @@ namespace WindowsFormsApplication1
         // Det som sker när applicationen startas
         private void form1Load(object sender, EventArgs e)
         {
-            dt = dbhandler.selectDB("SELECT * FROM student st JOIN postort po  ON st.postnr = po.postnr");
+            dt = dbhandler.selectDB(studentSQL);
             dataGridView1.DataSource = dt;
         }
 
@@ -38,17 +41,17 @@ namespace WindowsFormsApplication1
         {
             if(e.TabPageIndex.Equals(1))
             {
-                dt = dbhandler.selectDB("SELECT * FROM utbildning");
+                dt = dbhandler.selectDB(utbildningSQL);
                 dataGridView2.DataSource = dt;
 
             } else if (e.TabPageIndex.Equals(2))
             {
-                dt = dbhandler.selectDB("SELECT * FROM anstalld");
+                dt = dbhandler.selectDB(anstalldSQL);
                 dataGridView3.DataSource = dt;
             }
             else
             {
-                dt = dbhandler.selectDB("SELECT * FROM student");
+                dt = dbhandler.selectDB(studentSQL);
                 dataGridView1.DataSource = dt;
             }
            
@@ -58,10 +61,10 @@ namespace WindowsFormsApplication1
         {
             if (this.textBox1.Text.Equals(""))
             {
-                dt = dbhandler.selectDB("SELECT * FROM student");
+                dt = dbhandler.selectDB(studentSQL);
                 dataGridView1.DataSource = dt;
             }
-            dt = dbhandler.selectDB("SELECT * FROM student WHERE LOWER (fname) LIKE '" + this.textBox1.Text.ToLower() + "%' OR LOWER (lname) LIKE '" + this.textBox1.Text.ToLower() + "%'");
+            dt = dbhandler.selectDB(studentSQL + " WHERE LOWER (fname) LIKE '" + this.textBox1.Text.ToLower() + "%' OR LOWER (lname) LIKE '" + this.textBox1.Text.ToLower() + "%'");
             dataGridView1.DataSource = dt;
 
         }
@@ -77,15 +80,15 @@ namespace WindowsFormsApplication1
         {
             if(comboBox1.SelectedItem.Equals("") || comboBox1.SelectedItem.Equals(null))
             {
-                dt = dbhandler.selectDB("SELECT * FROM student");
+                dt = dbhandler.selectDB(studentSQL);
                 dataGridView1.DataSource = dt;
             } else if (comboBox1.SelectedItem.Equals("Antagna"))
             {
-                dt = dbhandler.selectDB("SELECT st.fname, st.lname, sta.antagen FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.antagen = TRUE");
+                dt = dbhandler.selectDB("SELECT st.fname as Förnamn, st.lname AS Efternamn, sta.antagen as Antagen FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.antagen = TRUE");
                 dataGridView1.DataSource = dt;
             }else if (comboBox1.SelectedItem.Equals("Klara"))
             {
-                dt = dbhandler.selectDB("SELECT st.fname, st.lname, sta.klar FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.klar = TRUE");
+                dt = dbhandler.selectDB("SELECT st.fname as Förnamn, st.lname AS Efternamn, sta.klar as Klar FROM student st JOIN status sta ON st.personnr= sta.studentid WHERE sta.klar = TRUE");
                 dataGridView1.DataSource = dt;
             }
         }
