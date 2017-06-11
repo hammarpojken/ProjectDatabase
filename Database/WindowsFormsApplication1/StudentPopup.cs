@@ -23,6 +23,7 @@ namespace WindowsFormsApplication1
             
             InitializeComponent();
             this.button1.Show();
+            textBox5.ReadOnly = true;
             Form2_Load();
         }
         public StudentPopup()
@@ -30,31 +31,32 @@ namespace WindowsFormsApplication1
            
             InitializeComponent();
             button2.Show();
+            textBox5.ReadOnly = true;
             
         }
         // laddar in all data om studenten
         private void Form2_Load()
         {
             
-            dtstudent = dbhandler.selectDB("SELECT * FROM student WHERE personnr = " + studentid).Copy();
+            dtstudent = dbhandler.selectDB("SELECT * FROM student JOIN postort ON student.postnr = postort.postnr WHERE personnr = " + studentid).Copy();
            
                 this.Text = dtstudent.Rows[0].Field<string>(1) + " " + dtstudent.Rows[0].Field<string>(2);
                 textBox1.Text = dtstudent.Rows[0][1].ToString();
                 textBox2.Text = dtstudent.Rows[0].Field<string>(2);
                 textBox3.Text = dtstudent.Rows[0].Field<Int64>(0).ToString();
                 textBox4.Text = dtstudent.Rows[0].Field<string>(3);
-                textBox5.Text = dtstudent.Rows[0].Field<string>(5);
+                textBox5.Text = dtstudent.Rows[0].Field<string>(11);
                 textBox6.Text = dtstudent.Rows[0].Field<int>(4).ToString();
-                textBox7.Text = dtstudent.Rows[0].Field<string>(6).ToString();
-                textBox8.Text = dtstudent.Rows[0].Field<string>(7).ToString();
-                textBox9.Text = dtstudent.Rows[0].Field<string>(8).ToString();
-                textBox10.Text = dtstudent.Rows[0].Field<string>(9).ToString();
+                textBox7.Text = dtstudent.Rows[0].Field<string>(5).ToString();
+                textBox8.Text = dtstudent.Rows[0].Field<string>(6).ToString();
+                textBox9.Text = dtstudent.Rows[0].Field<string>(7).ToString();
+                textBox10.Text = dtstudent.Rows[0].Field<string>(8).ToString();
 
-                if (dtstudent.Rows[0].IsNull(10))
+                if (dtstudent.Rows[0].IsNull(9))
                 {
                     textBox11.Text = "Inget angivet";
                 }
-                else if (dtstudent.Rows[0].Field<Boolean>(10).ToString().Equals("False"))
+                else if (dtstudent.Rows[0].Field<Boolean>(9).ToString().Equals("False"))
                 {
                     textBox11.Text = "Nej";
                 }
@@ -90,7 +92,10 @@ namespace WindowsFormsApplication1
         // för att skapa ny student
         private void button2_Click(object sender, EventArgs e)
         {
+            
             dtstudent = dbhandler.selectDB("SELECT * FROM student");
+            dtstudent.Columns.Add(new DataColumn("ort", typeof(string)));
+
             dtstudent.Rows[0][0] = Int64.Parse(textBox3.Text);
             dtstudent.Rows[0][1] = textBox1.Text.ToString();
             dtstudent.Rows[0]["lname"] = textBox2.Text.ToString();

@@ -40,7 +40,8 @@ namespace WindowsFormsApplication1
         {
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
             conn.Open();
-            NpgsqlCommand command = new NpgsqlCommand("INSERT INTO student VALUES (:personnr, :fname, :lname, :adress, :postnr, :ort, :pr,:ma,:sv,:en,:gy)", conn);
+            // tog bort ort
+            NpgsqlCommand command = new NpgsqlCommand("INSERT INTO student VALUES (:personnr, :fname, :lname, :adress, :postnr, :pr,:ma,:sv,:en,:gy)", conn);
 
             try
             {
@@ -49,7 +50,7 @@ namespace WindowsFormsApplication1
                 command.Parameters.Add(new NpgsqlParameter("lname", NpgsqlTypes.NpgsqlDbType.Text));
                 command.Parameters.Add(new NpgsqlParameter("adress", NpgsqlTypes.NpgsqlDbType.Text));
                 command.Parameters.Add(new NpgsqlParameter("postnr", NpgsqlTypes.NpgsqlDbType.Integer));
-                command.Parameters.Add(new NpgsqlParameter("ort", NpgsqlTypes.NpgsqlDbType.Text));
+               // command.Parameters.Add(new NpgsqlParameter("ort", NpgsqlTypes.NpgsqlDbType.Text));
                 command.Parameters.Add(new NpgsqlParameter("pr", NpgsqlTypes.NpgsqlDbType.Char));
                 command.Parameters.Add(new NpgsqlParameter("ma", NpgsqlTypes.NpgsqlDbType.Char));
                 command.Parameters.Add(new NpgsqlParameter("sv", NpgsqlTypes.NpgsqlDbType.Char));
@@ -60,12 +61,12 @@ namespace WindowsFormsApplication1
                 command.Parameters[2].Value = dt.Rows[0][2];
                 command.Parameters[3].Value = dt.Rows[0][3];
                 command.Parameters[4].Value = dt.Rows[0][4];
+               // command.Parameters[5].Value = dt.Rows[0][10];
                 command.Parameters[5].Value = dt.Rows[0][5];
                 command.Parameters[6].Value = dt.Rows[0][6];
                 command.Parameters[7].Value = dt.Rows[0][7];
                 command.Parameters[8].Value = dt.Rows[0][8];
                 command.Parameters[9].Value = dt.Rows[0][9];
-                command.Parameters[10].Value = dt.Rows[0][10];
                 command.ExecuteNonQuery();
                 conn.Close(); 
             } catch (NpgsqlException e)
@@ -80,7 +81,7 @@ namespace WindowsFormsApplication1
             NpgsqlConnection conn = new NpgsqlConnection(connstring);
             conn.Open();
             NpgsqlCommand cmd = new NpgsqlCommand("update student set \"personnr\" = :personnr, \"fname\" = :fname, \"lname\" = :lname, \"adress\" = :adress," +
-               " \"postnr\" = :postnr, \"ort\" = ort, \"pr\" = :pr," +
+               " \"postnr\" = :postnr, \"pr\" = :pr," +
                " \"ma\" = :ma, \"sv\" = :sv, \"en\" = :en, \"gy\" = :gy Where \"personnr\" = " + id, conn);
             try
             {
@@ -89,7 +90,7 @@ namespace WindowsFormsApplication1
                 cmd.Parameters.Add(new NpgsqlParameter("lname", NpgsqlTypes.NpgsqlDbType.Text));
                 cmd.Parameters.Add(new NpgsqlParameter("adress", NpgsqlTypes.NpgsqlDbType.Text));
                 cmd.Parameters.Add(new NpgsqlParameter("postnr", NpgsqlTypes.NpgsqlDbType.Integer));
-                cmd.Parameters.Add(new NpgsqlParameter("ort", NpgsqlTypes.NpgsqlDbType.Text));
+                //cmd.Parameters.Add(new NpgsqlParameter("ort", NpgsqlTypes.NpgsqlDbType.Text));
                 cmd.Parameters.Add(new NpgsqlParameter("pr", NpgsqlTypes.NpgsqlDbType.Char));
                 cmd.Parameters.Add(new NpgsqlParameter("ma", NpgsqlTypes.NpgsqlDbType.Char));
                 cmd.Parameters.Add(new NpgsqlParameter("sv", NpgsqlTypes.NpgsqlDbType.Char));
@@ -100,12 +101,12 @@ namespace WindowsFormsApplication1
                 cmd.Parameters[2].Value = dtstudent.Rows[0][2];
                 cmd.Parameters[3].Value = dtstudent.Rows[0][3];
                 cmd.Parameters[4].Value = dtstudent.Rows[0][4];
+                //cmd.Parameters[5].Value = dtstudent.Rows[0][5];
                 cmd.Parameters[5].Value = dtstudent.Rows[0][5];
                 cmd.Parameters[6].Value = dtstudent.Rows[0][6];
                 cmd.Parameters[7].Value = dtstudent.Rows[0][7];
                 cmd.Parameters[8].Value = dtstudent.Rows[0][8];
                 cmd.Parameters[9].Value = dtstudent.Rows[0][9];
-                cmd.Parameters[10].Value = dtstudent.Rows[0][10];
                 cmd.ExecuteNonQuery();
                 conn.Close();
             }

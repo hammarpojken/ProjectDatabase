@@ -23,7 +23,7 @@ namespace WindowsFormsApplication1
         // Det som sker när applicationen startas
         private void form1Load(object sender, EventArgs e)
         {
-            dt = dbhandler.selectDB("SELECT * FROM student");
+            dt = dbhandler.selectDB("SELECT * FROM student st JOIN postort po  ON st.postnr = po.postnr");
             dataGridView1.DataSource = dt;
         }
 
