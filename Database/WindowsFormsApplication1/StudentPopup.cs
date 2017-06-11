@@ -40,38 +40,35 @@ namespace WindowsFormsApplication1
             
             dtstudent = dbhandler.selectDB("SELECT * FROM student JOIN postort ON student.postnr = postort.postnr WHERE personnr = " + studentid).Copy();
            
-                this.Text = dtstudent.Rows[0].Field<string>(1) + " " + dtstudent.Rows[0].Field<string>(2);
-                textBox1.Text = dtstudent.Rows[0][1].ToString();
-                textBox2.Text = dtstudent.Rows[0].Field<string>(2);
-                textBox3.Text = dtstudent.Rows[0].Field<Int64>(0).ToString();
-                textBox4.Text = dtstudent.Rows[0].Field<string>(3);
-                textBox5.Text = dtstudent.Rows[0].Field<string>(11);
-                textBox6.Text = dtstudent.Rows[0].Field<int>(4).ToString();
-                textBox7.Text = dtstudent.Rows[0].Field<string>(5).ToString();
-                textBox8.Text = dtstudent.Rows[0].Field<string>(6).ToString();
-                textBox9.Text = dtstudent.Rows[0].Field<string>(7).ToString();
-                textBox10.Text = dtstudent.Rows[0].Field<string>(8).ToString();
+            this.Text = dtstudent.Rows[0].Field<string>(1) + " " + dtstudent.Rows[0].Field<string>(2);
+            textBox1.Text = dtstudent.Rows[0][1].ToString();
+            textBox2.Text = dtstudent.Rows[0].Field<string>(2);
+            textBox3.Text = dtstudent.Rows[0].Field<Int64>(0).ToString();
+            textBox4.Text = dtstudent.Rows[0].Field<string>(3);
+            textBox5.Text = dtstudent.Rows[0].Field<string>(11);
+            textBox6.Text = dtstudent.Rows[0].Field<int>(4).ToString();
+            textBox7.Text = dtstudent.Rows[0].Field<string>(5).ToString();
+            textBox8.Text = dtstudent.Rows[0].Field<string>(6).ToString();
+            textBox9.Text = dtstudent.Rows[0].Field<string>(7).ToString();
+            textBox10.Text = dtstudent.Rows[0].Field<string>(8).ToString();
+            if (dtstudent.Rows[0].IsNull(9))
+            {
+                dtstudent.Rows[0]["gy"] = false;
+            }
 
-                if (dtstudent.Rows[0].IsNull(9))
-                {
-                    textBox11.Text = "Inget angivet";
-                }
-                else if (dtstudent.Rows[0].Field<Boolean>(9).ToString().Equals("False"))
-                {
-                    textBox11.Text = "Nej";
-                }
-                else
-                {
-                    textBox11.Text = "Ja";
+            checkBox1.Checked = dtstudent.Rows[0].Field<Boolean>(9);
 
-                }
+
+
+                
+                
                 dtbetyg = dbhandler.selectDB("SELECT kurs.namn, betyg.betyg FROM kurs JOIN betyg ON kurs.kursid = betyg.kurs WHERE betyg.student =" + studentid);
                 this.dataGridView1.DataSource = dtbetyg;
             
 
             
         }
-        // funktion för att uppdatera ny student
+        // funktion för att uppdatera student
         private void button1_Click(object sender, EventArgs e)
         {
             dtstudent.Rows[0][0] = Int64.Parse(textBox3.Text);
@@ -84,7 +81,8 @@ namespace WindowsFormsApplication1
             dtstudent.Rows[0]["ma"] = textBox8.Text.ToString();
             dtstudent.Rows[0]["sv"] = textBox9.Text.ToString();
             dtstudent.Rows[0]["en"] = textBox10.Text.ToString();
-            dtstudent.Rows[0]["gy"] = Boolean.Parse(textBox11.Text);
+            //dtstudent.Rows[0]["gy"] = Boolean.Parse(textBox11.Text);
+            dtstudent.Rows[0]["gy"] = checkBox1.Checked;
 
             dbhandler.updateStudent(dtstudent, Int64.Parse(studentid));
             this.Close();
@@ -106,7 +104,8 @@ namespace WindowsFormsApplication1
             dtstudent.Rows[0]["ma"] = textBox8.Text.ToString();
             dtstudent.Rows[0]["sv"] = textBox9.Text.ToString();
             dtstudent.Rows[0]["en"] = textBox10.Text.ToString();
-            dtstudent.Rows[0]["gy"] = Boolean.Parse(textBox11.Text);
+            //dtstudent.Rows[0]["gy"] = Boolean.Parse(textBox11.Text);
+            dtstudent.Rows[0]["gy"] = checkBox1.Checked;
 
             dbhandler.newStudentRow(dtstudent);
             this.Close();

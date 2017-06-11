@@ -39,6 +39,7 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
             this.tab.SuspendLayout();
             this.Student.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,6 +66,7 @@
             // 
             // Student
             // 
+            this.Student.Controls.Add(this.label1);
             this.Student.Controls.Add(this.button2);
             this.Student.Controls.Add(this.button1);
             this.Student.Controls.Add(this.textBox1);
@@ -80,17 +82,17 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(598, 43);
+            this.button2.Location = new System.Drawing.Point(580, 66);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(113, 23);
             this.button2.TabIndex = 4;
-            this.button2.Text = "Ny student";
+            this.button2.Text = "Lägg till Student";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button3_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(598, 72);
+            this.button1.Location = new System.Drawing.Point(149, 67);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -103,9 +105,9 @@
             this.textBox1.AccessibleDescription = "";
             this.textBox1.AccessibleName = "";
             this.textBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(6, 15);
+            this.textBox1.Location = new System.Drawing.Point(107, 22);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.Size = new System.Drawing.Size(114, 21);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -116,7 +118,7 @@
             "",
             "Antagna",
             "Klara"});
-            this.comboBox1.Location = new System.Drawing.Point(6, 72);
+            this.comboBox1.Location = new System.Drawing.Point(22, 67);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 22);
             this.comboBox1.TabIndex = 1;
@@ -125,11 +127,13 @@
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 100);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 107);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(695, 220);
+            this.dataGridView1.Size = new System.Drawing.Size(719, 220);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentDoubleClick);
             // 
@@ -177,6 +181,15 @@
             this.dataGridView3.Size = new System.Drawing.Size(695, 220);
             this.dataGridView3.TabIndex = 0;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 14);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Studentsök";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -211,6 +224,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label1;
     }
 }
 
